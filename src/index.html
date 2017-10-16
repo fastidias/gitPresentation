@@ -10,78 +10,115 @@
 <article class="deck">
 
   <section>
-    <h1>git presentation</h1>
+    <h1>Versionsverwaltung mit Git</h1>
   </section>
 
   <section>
-    <h2>Images</h2>
-    <img src="images/bespoke-logo.jpg">
-  </section>
-
-  <section>
-    <h2>Keyboard Interaction</h2>
-    <h3>Powered by <a href="https://github.com/bespokejs/bespoke-keys">bespoke-keys</a></h3>
-  </section>
-
-  <section>
-    <h2>Touch Interaction</h2>
-    <h3>Powered by <a href="https://github.com/bespokejs/bespoke-touch">bespoke-touch</a></h3>
-  </section>
-
-  <section>
-    <h2>Responsive Slides</h2>
-    <h3>Powered by <a href="https://github.com/bespokejs/bespoke-scale">bespoke-scale</a></h3>
-  </section>
-
-  <section>
-    <h2>Bullet List</h2>
-    <h3>Powered by <a href="https://github.com/bespokejs/bespoke-bullets">bespoke-bullets</a></h3>
+    <h2>Agenda</h2>
     <ul class="build build-items">
-      <li>Bullet 1</li>
-      <li>Bullet 2</li>
-      <li>Bullet 3</li>
+      <li>Entstehung von Git</li>
+      <li>Arbeitsweise mit Git</li>
+      <li>Git in der agilen Softwareentwicklung</li>
     </ul>
   </section>
 
   <section>
-    <iframe width="640" height="360" src="https://www.youtube.com/embed/AV3kYPutYfs?rel=0&amp;showinfo=0&amp;controls=0&amp;enablejsapi=1&amp;loop=1&amp;playlist=AV3kYPutYfs" frameborder="0" allowfullscreen data-volume="0"></iframe>
+    <h2>Entstehung von Git</h2>
+    <img src="images/linus.gif"/>
+    <!-- Comment -->
+    <span class="note">Ursprünglich von Linus Torvalds und anderen Entwicklern für die Entwicklung des Linux Kernels geschaffen (2005)</span>
   </section>
 
   <section>
-    <h2>Syntax Highlighting</h2>
-    <h3>Powered by <a href="https://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/PrismJS/prism">Prism</a></h3>
-    <pre><code class="language-javascript">
-(function() {
-  function hanoi(n, a, b, c) {
-    return n ? hanoi(n - 1, a, c, b)
-        .concat([[a, b]])
-        .concat(hanoi(n - 1, c, b, a)) : [];
-  }
-  return hanoi(3, 'left', 'right', 'mid')
-    .map(function(d) {
-      return d[0] + ' -&gt; ' + d[1];
-    });
-})();</code></pre>
-  </section>
-
-  <section data-bespoke-hash="named-route">
-    <h2>Named Route</h2>
-    <h3>Powered by <a href="https://github.com/bespokejs/bespoke-hash">bespoke-hash</a></h3>
-    <p>Look up! This route has been named with a <em>data-bespoke-hash</em> attribute.</p>
+    <ul>
+      <li> Ziele
+        <ul>
+          <li>Geschwindigkeit</li>
+          <li>Einfaches Design</li>
+          <li>Gute Unterstützung von nicht-linearer Entwicklung</li>
+          <li>Vollständig verteilt</li>
+        </ul>
+      </li>
+    </ul>
   </section>
 
   <section>
-    <h2>Just the beginning…</h2><br>
+    <ul>
+      <h1>
+        Fallbeispiel
+      </h1>
+    </ul>
+    <span class="note">
+      git init
+      git status
+      echo 'Hallo Welt' > test
+      git status
+      git add test
+      git status
+      git commit -m 'intial commit of test file'
+      git status
+      echo 'test' >> test
+      git status
+      git add test
+      git commit -m 'updated test file with additional content'
+      git status
+      gitk
+      echo 'test42' >> test
+      git revert --hard
+    </span>
+  </section>
+
+  <section>
     <ul class="build build-items">
-      <li>Edit HTML markup in <em class="path">src/index.html</em></li>
-      <li>Edit <a href="http://stylus-lang.com">Stylus</a> styles in <em class="path">src/styles/user.styl</em></li>
-      <li>Edit JavaScript in <em class="path">src/scripts/main.js</em></li>
-    </ul>
-    <br>
-    <ul class="build">
-      <li><strong>Enjoy! :)</strong><a href="https://twitter.com/markdalgleish"> -@markdalgleish</a></li>
+      <pre><code class="language-javascript">git init</code></pre>
+      <pre><code class="language-javascript">git add</code></pre>
+      <pre><code class="language-javascript">git commit</code></pre>
+      <pre><code class="language-javascript">git status</code></pre>
     </ul>
   </section>
+
+  <section>
+    <h2>Speicherdienste</h2>
+    <ul>
+      <li>GitHub</li>
+      <li>Bitbucket (GitLab)</li>
+      <li>Assembla (GitLab)</li>
+    </ul>
+  </section>
+
+  <section>
+    <ul>
+      <h1>
+        Fallbeispiel
+      </h1>
+    </ul>
+    <span class="note">
+      create repo
+      git clone git@github.com:fastidias/testMich.git
+      echo 'test' >> test
+      git add .
+      git commit -m 'initial commit for test'
+      git push
+      make commit on github
+      git fetch
+      git status
+      git pull
+    </span>
+  </section>
+
+  <section>
+    <ul class="build build-items">
+      <pre><code class="language-javascript">git clone</code></pre>
+      <pre><code class="language-javascript">git push</code></pre>
+      <pre><code class="language-javascript">git fetch</code></pre>
+      <pre><code class="language-javascript">git pull</code></pre>
+    </ul>
+  </section>
+
+  <section>
+
+  </section>
+
 </article>
 
 <script src="build/build.js"></script>
