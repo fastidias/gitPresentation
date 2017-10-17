@@ -28,7 +28,7 @@
   </section>
 
   <section>
-    <h2>Entstehung von Git</h2>
+    <h3>Entstehung von Git</h3>
     <img src="images/linus.gif"/>
     <!--
      * Ursprünglich von Linus Torvalds und anderen Entwicklern für die Entwicklung des Linux Kernels geschaffen
@@ -42,7 +42,7 @@
 
   <section>
     <ul>
-      <h2>Ziele</h2>
+      <h3>Ziele</h3>
         <ul>
           <li>Geschwindigkeit</li>
           <li>Einfaches Design</li>
@@ -55,7 +55,7 @@
   <section>
     <ul>
       <h1>
-        Fallbeispiel
+        Arbeiten mit einem Lokalen Repository
       </h1>
     </ul>
     <!--
@@ -91,7 +91,7 @@
   </section>
 
   <section>
-    <h2>Speicherdienste</h2>
+    <h3>Speicherdienste</h3>
     <ul>
       <li>GitHub</li>
       <li>Bitbucket (GitLab)</li>
@@ -107,9 +107,10 @@
 
   <section>
     <ul>
-      <h1>
-        Fallbeispiel
-      </h1>
+      <h3>
+        Arbeiten mit einem zentralen Repository
+      </h3>
+      <img src="images/CentralizedWorkflow.svg"/>
     </ul>
     <!--
       create repo on github
@@ -144,12 +145,6 @@
   </section>
 
   <section>
-    <h2>Zentralisierter Workflow</h2>
-    <img src="images/CentralizedWorkflow.svg"/>
-  </section>
-
-  <section>
-    <h2>Zentralisierter Workflow</h2>
     <img src="images/Diverged.svg"/>
     <!--
     * diverged state
@@ -172,6 +167,13 @@
 
   <section>
     <img src="images/Rebase.svg"/>
+  </section>
+
+  <section>
+    <ul class="build build-items">
+      <pre><code class="language-javascript">git merge</code></pre>
+      <pre><code class="language-javascript">git rebase</code></pre>
+    </ul>
   </section>
 
   <section>
@@ -200,37 +202,6 @@
     * löscht alle gelöschten branches lokal
     git remote prune origin
     -->
-  </section>
-
-  <section>
-    <ul>
-      <h1>
-        Fallbeispiel
-      </h1>
-    </ul>
-    <!--
-   * um besser verteilt arbeiten zu können bietet es sich an features branches zu nutzen
-   * git bietet hier eine neue möglichkeit: pull requests
-   zeigen am beispiel:
-   git branch testBranch
-   git checkout testBranch
-   echo 'test4' > test
-   * einmal probieren und fehler sehen
-   git push --set-upstream origin testBranch
-   * weiter im github
-   * pr erstellen
-   * möglichkeiten des reviews zeigen
-   * bestehenden pull request commit durchführen
-   echo 'test4' > testdad
-   git add .
-   git commit -m 'test commit 2'
-   git push
-   * pr anschauen
-   git checkout master
-   git pull
-   * löscht alle gelöschten branches lokal
-   git remote prune origin
-   -->
   </section>
 
   <section>
