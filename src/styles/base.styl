@@ -44,7 +44,7 @@ img, video
 .bespoke-slide
   overflow hidden
   // NOTE force opacity to start at 0 to avoid transition on load when using bespoke-scale
-  opacity 0
+  opacity 10
   background-color #fff
   position absolute
   top 50%
@@ -82,5 +82,11 @@ img, video
 aside[role=note], aside[role=notes]
   display none
 
-.note
-  display none
+.bespoke-progress-bar
+    -webkit-transition: width .6s ease
+    transition: width .6s ease
+    position: absolute
+    height: 5px
+    background: #0089f3
+    border-radius: 0 4px 4px 0
+    z-index 100
