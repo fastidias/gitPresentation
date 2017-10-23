@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>git presentation</title>
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+</head>
+<body>
+<article class="deck">
+  <section>
+    <h1>Versionsverwaltung Git</h1>
+  </section>
+
+  <section>
+    <h2>Agenda</h2>
+    <ul class="build build-items">
+      <li>Entstehung von Git</li>
+      <li>Arbeitsweise mit Git
+        <ul>
+          <li>Zentralisierter Workflow</li>
+          <li>Branch basierter Workflow</li>
+          <li>Gitflow Workflow</li>
+          <li>Forking Workflow</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Entstehung von Git</h3>
+    <img src="images/linus.gif"/>
+    <!--
+     * Ursprünglich von Linus Torvalds und anderen Entwicklern für die Entwicklung des Linux Kernels geschaffen
+     * Entwicklung Linux Kernel
+     * weltweit verteilte collaboration
+     * bitkeeper wurde genutzt -> streit
+     * eigenes system wurde gebaut
+     * git steht für stupid and unpleasant person
+    -->
+  </section>
+
+  <section>
+    <ul>
+      <h3>Ziele</h3>
+        <ul>
+          <li>Geschwindigkeit</li>
+          <li>Einfaches Design</li>
+          <li>Gute Unterstützung von nicht-linearer Entwicklung</li>
+          <li>Vollständig verteilt</li>
+        </ul>
+    </ul>
+  </section>
+
+  <section>
+    <ul>
+      <h1>
+        Arbeiten mit einem Lokalen Repository
+      </h1>
+    </ul>
+    <!--
+    * architektur abhängig wie man git einsetzten möchte
+    * einfachste art git zu nutzen ist die folgende
+    * lokales repo
+      git init
+      git status
+      echo 'Hallo Welt' > test
+      git status
+      git add test
+      git status
+      git commit -m 'intial commit of test file'
+      git status
+      echo 'test' >> test
+      git status
+      git add test
+      git commit -m 'updated test file with additional content'
+      git status
+      gitk
+      echo 'test42' >> test
+      git revert --hard
+    -->
+  </section>
+
+  <section>
+    <ul class="build build-items">
+      <pre><code class="language-javascript">git init</code></pre>
+      <pre><code class="language-javascript">git add</code></pre>
+      <pre><code class="language-javascript">git commit</code></pre>
+      <pre><code class="language-javascript">git status</code></pre>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Speicherdienste</h3>
+    <ul>
+      <li>GitHub</li>
+      <li>Bitbucket (GitLab)</li>
+      <li>Assembla (GitLab)</li>
+    </ul>
+    <!--
+    * so ist es nicht möglich in verteilten teams zu entwickeln
+    * deshalb speicherdienste
+    * dort ist es möglich repos anzulegen die von mehreren entwicklern genutzt werden können
+    * gitlab kann genutzt werden um selbst ein dienst aufzusetzten
+    -->
+  </section>
+
+  <section>
+    <ul>
+      <h3>
+        Arbeiten mit einem zentralen Repository
+      </h3>
+      <img src="images/CentralizedWorkflow.svg"/>
+    </ul>
+    <!--
+      create repo on github
+      * repo klonen
+      git clone git@github.com:fastidias/testMich.git
+      * es gibt zwei namen für repos upstream und origin -> in unseren Fall ist origin == upstream
+      * datei erstellen
+      echo 'test' >> test
+      * datei adden
+      git add .
+      * datei commiten
+      git commit -m 'initial commit for test'
+      in github repo nach datei schauen -> nicht da da nur lokal commited
+      * in repo pushen
+      git push
+      erneut in github anchschauen
+      * da man nicht alleine an repo arbeitet muss man auch änderungen von anderen bekommen
+      make commit on github
+      git fetch
+      git status
+      git pull
+    -->
+  </section>
+
+  <section>
+    <ul class="build build-items">
+      <pre><code class="language-javascript">git clone</code></pre>
+      <pre><code class="language-javascript">git push</code></pre>
+      <pre><code class="language-javascript">git fetch</code></pre>
+      <pre><code class="language-javascript">git pull</code></pre>
+    </ul>
+  </section>
+
+  <section>
+    <img src="images/Diverged.svg"/>
+    <!--
+    * diverged state
+    * ein rebase muss gemacht werden
+    git pull --rebase origin master
+    * commit by commit
+    * neue commit ids
+    * kann konflikte geben die evtl. gelöst werden müssen
+    * kleines scenario
+    * commit in master machen
+    * commit in github machen
+    * diverged state
+    * was nun ? -> merge vs rebase
+    -->
+  </section>
+
+  <section>
+    <img src="images/Merge.svg"/>
+  </section>
+
+  <section>
+    <img src="images/Rebase.svg"/>
+  </section>
+
+  <section>
+    <ul class="build build-items">
+      <pre><code class="language-javascript">git merge</code></pre>
+      <pre><code class="language-javascript">git rebase</code></pre>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Branch basierter Workflow</h2>
+    <img src="images/BranchBasedWF.svg"/>
+    <!--
+    * um besser verteilt arbeiten zu können bietet es sich an features branches zu nutzen
+    * git bietet hier eine neue möglichkeit: pull requests
+    zeigen am beispiel:
+    git branch testBranch
+    git checkout testBranch
+    echo 'test4' > test
+    * einmal probieren und fehler sehen
+    git push --set-upstream origin testBranch
+    * weiter im github
+    * pr erstellen
+    * möglichkeiten des reviews zeigen
+    * bestehenden pull request commit durchführen
+    echo 'test4' > testdad
+    git add .
+    git commit -m 'test commit 2'
+    git push
+    * pr anschauen
+    git checkout master
+    git pull
+    * löscht alle gelöschten branches lokal
+    git remote prune origin
+    -->
+  </section>
+
+  <section>
+    <ul class="build build-items">
+      <pre><code class="language-javascript">git branch</code></pre>
+      <pre><code class="language-javascript">git checkout</code></pre>
+      <pre><code class="language-javascript">git remote prune</code></pre>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Gitflow Workflow</h2>
+    <img src="images/GitflowWF.svg"/>
+    <!--
+    * hotfix releases
+    * dev branch und master branch
+    * dev zum entwickeln
+    * master als stabiler branch für versionen
+    * Vorteile:
+     hotfix support
+     staging area
+    -->
+  </section>
+
+    <section>
+    <h2>Forking Workflow</h2>
+    <img src="images/ForkWorkflow.jpg"/>
+    <!--
+
+    -->
+  </section>
+
+  <section>
+    <h1>Fragen ?</h1>
+  </section>
+
+</article>
+
+<script src="build/build.js"></script>
+
+</body>
+</html>
